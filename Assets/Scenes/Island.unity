@@ -14607,7 +14607,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2bcdfc5686c0564fa5626488f4fdfbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementRadius:
+  movementSpeed: 1
+  MovementRect:
     serializedVersion: 2
     x: 0
     y: 0
