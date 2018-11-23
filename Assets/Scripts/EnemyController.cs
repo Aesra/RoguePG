@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour {
 
-    private float distance;
-    private Vector3 direction = new Vector3(1,0,0);
-    private System.Random random = new System.Random();
+    //private float distance;
+    public int movementSpeed = 1;
+
+    private Vector3 direction = new Vector3(0,0,0);
+    public Rect MovementRect = new Rect(0,0,0,0);
+
     private System.DateTime directionChange;
-    public Rect MovementRadius;
-	// Use this for initialization
-	void Start () {
-        Debug.Log("start");
-	}
-	
-	// Update is called once per frame
+  
 	void Update () {
-        Vector3 movement = new Vector3(0,0,0);
-        if (!IsInArea()) ChangeDirection();
-        movement = direction.Scale(1 * Time.deltaTime);
+        Vector3 movement = new Vector3(0,0);
 
+        if (!IsInArea())
+        {
+            ChangeDirection();
+        }
 
+        movement = direction.Scale(movementSpeed * Time.deltaTime);
 
-            transform.Translate(movement);
+        transform.Translate(movement);
     }
 
     void ChangeDirection()
@@ -35,7 +35,7 @@ public class EnemyController : MonoBehaviour {
     {
         float x = transform.position.x;
         float y = transform.position.y;
-        if (x < MovementRadius.xMax && x > MovementRadius.xMin && y < MovementRadius.yMax && y > MovementRadius.yMin) return true;
+        if (x < MovementRect.xMax && x > MovementRect.xMin && y < MovementRect.yMax && y > MovementRect.yMin) return true;
         else return false;
     }
 
@@ -50,13 +50,15 @@ public class EnemyController : MonoBehaviour {
         {
             ChangeDirection();
         }
+        //i would use one unit instead of one second
     }
 
     Vector3 GetRandomDirection ()
     {
-        int ran = random.Next(4);
-        Debug.Log(ran);
-        switch (ran)
+        System.Random random = new System.Random();
+        int rand = random.Next(4);
+        //Debug.Log(rand);
+        switch (rand)
         {
             case 0: return new Vector3(1, 0);
             case 1: return new Vector3(-1, 0);
