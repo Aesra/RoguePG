@@ -15,10 +15,10 @@ public class EnemyController : MonoBehaviour {
 	void Update () {
         Vector3 movement = new Vector3(0,0);
 
-        if (!IsInArea())
-        {
-            ChangeDirection();
-        }
+        //if (!IsInArea())
+        //{
+        //    ChangeDirection();
+        //}
 
         movement = direction.Scale(movementSpeed * Time.deltaTime);
 
