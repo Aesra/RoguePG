@@ -14656,6 +14656,30 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2510b0d93829c374cb0823b625ce023e, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1325304123 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1472259999139972, guid: 91d05de278ca8a24ba9e9822cb9d7ef2,
+    type: 2}
+  m_PrefabInternal: {fileID: 877070961}
+--- !u!114 &1325304128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1325304123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AssetsPPU: 16
+  m_RefResolutionX: 320
+  m_RefResolutionY: 180
+  m_UpscaleRT: 0
+  m_PixelSnapping: 0
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
 --- !u!1 &1499845172
 GameObject:
   m_ObjectHideFlags: 0
@@ -14723,7 +14747,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 6
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -15467,7 +15491,7 @@ Prefab:
     - target: {fileID: 212046992235642440, guid: cad7828b17c601047a76e05fa562a646,
         type: 2}
       propertyPath: m_SortingOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 61112451788995628, guid: cad7828b17c601047a76e05fa562a646,
         type: 2}
