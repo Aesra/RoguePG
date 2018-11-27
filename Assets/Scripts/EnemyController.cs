@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour {
 
-    //private float distance;
     public int movementSpeed = 1;
+    public Rect movementRect;
 
-    private Vector3 direction = new Vector3(0,0,0);
-    public Rect MovementRect = new Rect(0,0,0,0);
-
+    private Vector3 direction;
     private System.DateTime directionChange;
+    private Vector3 lastPosition;
   
 	void Update () {
         Vector3 movement = new Vector3(0,0);
@@ -25,39 +24,33 @@ public class EnemyController : MonoBehaviour {
         transform.Translate(movement);
     }
 
-    void ChangeDirection()
-    {
-        direction = GetRandomDirection();
+    void ChangeDirection (Vector3 exclude) {
+        direction = GetRandomDirection(exclude);
         directionChange = System.DateTime.Now;
     }
 
-     bool IsInArea()
-    {
+    bool IsInArea () {
         float x = transform.position.x;
         float y = transform.position.y;
-        if (x < MovementRect.xMax && x > MovementRect.xMin && y < MovementRect.yMax && y > MovementRect.yMin) return true;
+        if (x < movementRect.xMax && x > movementRect.xMin && y < movementRect.yMax && y > movementRect.yMin) return true;
         else return false;
     }
 
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        ChangeDirection();
+    void OnCollisionEnter2D (Collision2D col) {
+        ChangeDirection(direction);
+        Debug.Log("enter");
     }
 
-    void OnCollisionStay2D(Collision2D col)
-    {
-        if((System.DateTime.Now -directionChange).TotalMilliseconds > 1000)
-        {
-            ChangeDirection();
+    void OnCollisionStay2D (Collision2D col) {
+        if (lastPosition == transform.position) {
+            ChangeDirection(new Vector3());
         }
-        //i would use one unit instead of one second
+        lastPosition = transform.position;
     }
 
-    Vector3 GetRandomDirection ()
-    {
+    Vector3 GetRandomDirection () {
         System.Random random = new System.Random();
         int rand = random.Next(4);
-        //Debug.Log(rand);
         switch (rand)
         {
             case 0: return new Vector3(1, 0);
@@ -66,6 +59,13 @@ public class EnemyController : MonoBehaviour {
             case 3: return new Vector3(0, -1);
             default: return new Vector3(0, 0);
         }
+    }
 
+    Vector3 GetRandomDirection (Vector3 exclude) {
+        Vector3 value;
+        do {
+            value = GetRandomDirection();
+        } while (value == exclude);
+        return value;
     }
 }
