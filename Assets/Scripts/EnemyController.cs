@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour {
+public class EnemyController : MonoBehaviour
+{
 
     public int movementSpeed = 1;
     public Rect movementRect;
@@ -36,9 +37,18 @@ public class EnemyController : MonoBehaviour {
         else return false;
     }
 
-    void OnCollisionEnter2D (Collision2D col) {
-        ChangeDirection(direction);
-        Debug.Log("enter");
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.name == "Player")
+        {
+            Debug.Log("Schaden");
+            other.gameObject.SetActive(false);
+            GameObject.Find("SceneLoader").GetComponent<SceneController>().reloading = true;
+        }
+        else
+        {
+            ChangeDirection(direction);
+        }
     }
 
     void OnCollisionStay2D (Collision2D col) {

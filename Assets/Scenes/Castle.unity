@@ -6539,7 +6539,7 @@ GameObject:
   - component: {fileID: 1720472420}
   - component: {fileID: 1720472421}
   m_Layer: 0
-  m_Name: IslandLoadScene
+  m_Name: SceneLoader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
