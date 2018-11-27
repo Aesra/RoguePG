@@ -2,18 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour {
+public class EnemyController : MonoBehaviour
+{
 
     //private float distance;
     public int movementSpeed = 1;
 
-    private Vector3 direction = new Vector3(0,0,0);
-    public Rect MovementRect = new Rect(0,0,0,0);
+    private Vector3 direction = new Vector3(0, 0, 0);
+    public Rect MovementRect = new Rect(0, 0, 0, 0);
 
     private System.DateTime directionChange;
-  
-	void Update () {
-        Vector3 movement = new Vector3(0,0);
+
+    void Update()
+    {
+        Vector3 movement = new Vector3(0, 0);
 
         //if (!IsInArea())
         //{
@@ -31,7 +33,7 @@ public class EnemyController : MonoBehaviour {
         directionChange = System.DateTime.Now;
     }
 
-     bool IsInArea()
+    bool IsInArea()
     {
         float x = transform.position.x;
         float y = transform.position.y;
@@ -39,21 +41,29 @@ public class EnemyController : MonoBehaviour {
         else return false;
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    void OnCollisionEnter2D(Collision2D other)
     {
-        ChangeDirection();
+        if (other.gameObject.name == "Player")
+        {
+            Debug.Log("Schaden");
+            other.gameObject.SetActive(false);
+            GameObject.Find("SceneLoader").GetComponent<SceneController>().reloading = true;
+        }
+        else
+        {
+            ChangeDirection();
+        }
     }
 
     void OnCollisionStay2D(Collision2D col)
     {
-        if((System.DateTime.Now -directionChange).TotalMilliseconds > 1000)
+        if ((System.DateTime.Now - directionChange).TotalMilliseconds > 1000)
         {
             ChangeDirection();
         }
-        //i would use one unit instead of one second
     }
 
-    Vector3 GetRandomDirection ()
+    Vector3 GetRandomDirection()
     {
         System.Random random = new System.Random();
         int rand = random.Next(4);

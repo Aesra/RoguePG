@@ -14365,7 +14365,7 @@ GameObject:
   - component: {fileID: 792851200}
   - component: {fileID: 792851202}
   m_Layer: 0
-  m_Name: CastletLoadScene
+  m_Name: SceneLoader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
