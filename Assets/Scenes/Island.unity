@@ -14365,7 +14365,7 @@ GameObject:
   - component: {fileID: 792851200}
   - component: {fileID: 792851202}
   m_Layer: 0
-  m_Name: SceneLoader
+  m_Name: SceneLoaderCastle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14421,6 +14421,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelToLoad: 1
+  reloading: 0
+  waitForReload: 2
+  Player: {fileID: 0}
 --- !u!1001 &877070961
 Prefab:
   m_ObjectHideFlags: 0
@@ -14607,13 +14610,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2bcdfc5686c0564fa5626488f4fdfbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 1
-  MovementRect:
+  movementSpeed: 2
+  movementRect:
     serializedVersion: 2
     x: 0
     y: 0
     width: 0
     height: 0
+  canDamage: 0
 --- !u!1001 &1011815750
 Prefab:
   m_ObjectHideFlags: 0

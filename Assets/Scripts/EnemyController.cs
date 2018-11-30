@@ -8,6 +8,8 @@ public class EnemyController : MonoBehaviour
     public int movementSpeed = 1;
     public Rect movementRect;
 
+    public bool canDamage;
+
     private Vector3 direction;
     private System.DateTime directionChange;
     private Vector3 lastPosition;
@@ -39,7 +41,7 @@ public class EnemyController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.name == "Player")
+        if (other.gameObject.name == "Player" && canDamage == true)
         {
             Debug.Log("Schaden");
             other.gameObject.SetActive(false);

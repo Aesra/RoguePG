@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Island.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Castle.unity
+    path: Assets/Scenes/Castle1.unity
     guid: accf1af5f00434447ae0dde10cea0f8c
+  - enabled: 1
+    path: Assets/Scenes/Castle2.unity
+    guid: a5f03c58813186b4bb3fdd641362e2de
   m_configObjects: {}
